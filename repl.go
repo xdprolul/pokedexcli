@@ -10,8 +10,8 @@ import (
 
 type config struct {
 	pokeapiClient			pokeapi.Client
-	nextLocationURL		*string
-	prevLocationURL		*string
+	nextLocationsURL		*string
+	prevLocationsURL		*string
 }
 
 func startRepl(cfg *config) {
@@ -27,7 +27,7 @@ func startRepl(cfg *config) {
     //fmt.Printf("Your command was: %v\n",cleanedWords[0])
 		command,ok:=getCommands()[cleanedWords[0]]
 		if ok {
-			err := command.callback(cvg)
+			err := command.callback(cfg)
 			if err!=nil {
 				fmt.Println(err)
 			}
@@ -65,11 +65,6 @@ func getCommands() map[string]cliCommand {
 			name:					"exit",
 			description:	"Exit the Pokedex",
 			callback: 		commandExit,
-		},
-		"map": {
-			name:					"map",
-			description:	"show locations in the pokemon world",
-			callback:			commandMap,
 		},
 	}
 }

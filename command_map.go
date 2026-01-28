@@ -10,7 +10,6 @@ func commandMapf(cfg *config) error {
 	if err!=nil {
 		return err
 	}
-	defer req.Body.Close()
 
 	cfg.nextLocationsURL=req.Next
 	cfg.prevLocationsURL=req.Previous
@@ -30,10 +29,9 @@ func commandMapb(cfg *config) error {
 	if err!=nil {
 		return err
 	}
-	defer req.Body.Close()
 
 	cfg.nextLocationsURL=req.Next
-	cfg.prevLocationsUrl=req.Previous
+	cfg.prevLocationsURL=req.Previous
 
 	for _,locA:=range req.Results {
 		fmt.Println(locA.Name)

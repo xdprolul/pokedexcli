@@ -7,8 +7,8 @@ import (
 )
 
 func(c *Client) ListLocations(pageURL *string) (ResShallowLocations, error) {
-	url:=baseUrl+"/location-area"
-	if pageURL!=ni {
+	url:=baseURL+"/location-area"
+	if pageURL!=nil {
 		url=*pageURL
 	}
 
