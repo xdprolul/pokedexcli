@@ -11,7 +11,7 @@ func commandInspect(cfg *config,args ...string) error {
 	}
 
 	name:=args[0]
-	exists,ok:=cfg.caughtPokemon[name];
+	exists,ok:=cfg.caughtPokemon[name]
 	if !ok {
 		return errors.New("you have not caught that pokemon")
 	}
